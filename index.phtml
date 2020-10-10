@@ -1,0 +1,38 @@
+  <body> 
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h2 class="display-5">Liste des Patients</h2>
+
+    </div>
+    <div>
+    <table class="patient">
+            <thead>
+                <tr>
+                    <th>Vers Dossier</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Date De Naissance</th>
+                    <th>Diagnostique</th>
+                    <th>Correspondance</th>
+                    <th>Numero</th>
+                    <th>Premier Consutation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($patients as $patient): ?>
+                    <tr>
+                        <td><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-folder-open"></i></span> <?= $patient['IDpat'] ?></td>
+                        <td><?= $patient['nom'] ?></td>
+                        <td><?= $patient['prenom'] ?></td>
+                        <td><?= $patient['datenai'] ?></td>
+                        <td> <?= $patient['diagnostique'] ?></td>
+                        <td><?= $patient['correspondance'] ?></td>
+                        <td><?= $patient['numtel'] ?></td>
+                        <td><?= $patient['datemes'] ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+
+  
+  </body>
