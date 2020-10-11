@@ -1,68 +1,66 @@
 <!-- Modal -->
 <div class="modal fade" id="modifier" tabindex="-1" aria-labelledby="modifierLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modifierLabel">Modifier Patient</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="col-12 col-md-12">
-      <form method="post" action="edit.php">
-      <div class="modal-body">
-        <div class="form-group row">
-          <label for="pnom" class="col-md-2 col-form-label" >Prénom</label>
-          <div class="col-md-10">
-            <input id="pnom" value="<?= $patient["prenom"]?>" class="form-control" type="text" name="pnom" placeholder="Entrez le prénom du patient">
-          </div>                 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modifierLabel">Modifier Patient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="form-group row">
-          <label for="nom" class="col-md-2 col-form-label" >Nom</label>
-          <div class="col-md-10">
-            <input id="nom" class="form-control" value="<?= $patient["nom"]?>" type="text" name="nom" placeholder="Entrez le nom du patient">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="numtel" class="col-md-2 col-form-label" >Téléphone</label>
-          <div class="col-md-10">
-            <input id="numtel" class="form-control" value="<?= $patient["numtel"]?>" type="tel" name="numtel" placeholder="Entrez le/les numeros du telephone du patient">
-          </div>                  
-        </div>
-        <div class="form-group row">
-          <label for="diagnostique" class="col-md-4 col-form-label" >Diagnostique</label>
-          <div class="col-md-8">
-            <input id="diagnostique" class="form-control" value="<?= $patient["diagnostique"]?>" type="text" name="diagnostique" placeholder="Entrez le diagnostique du patient">
-          </div>                  
-        </div>
-        <div class="form-group row">
-          <label for="correspondance" class="col-md-4 col-form-label" >Correspondance</label>
-          <div class="col-md-8">
-            <input id="correspondance" class="form-control" type="text" name="correspondance" value="<?= $patient["correspondance"]?>" placeholder="Entrez le correspondance du patient">
-          </div>                    
-        </div>
-        <div class="form-group row">
-          <label for="datenaiss" class="col-md-2 col-form-label" >date de naissance</label>
-          <div class="col-md-10">
-            <input id="datenaiss" value="<?= $patient["datenai"]?>"  class="form-control" type="date" name="datenaiss" placeholder="Date de naissance">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="adress" class="col-md-2 col-form-label" >Address</label>
-          <div class="col-md-10">
-            <input id="adress" class="form-control" value="<?= $patient["address"]?>"   type="text" name="adress" placeholder="Entrez l'address du patient" rows="6"></input>
-          </div>
-        </div>
+        <div class="col-12 col-md-12">
+          <form method="post" action="edit.php">
+            <div class="modal-body">
+              <div class="form-group row">
+                <label for="pnom" class="col-md-2 col-form-label" >Prénom</label>
+                <div class="col-md-10">
+                  <input id="pnom" value="<?= $patient["prenom"]?>" class="form-control" type="text" name="pnom" placeholder="Entrez le prénom du patient">
+                </div>                 
+              </div>
+              <div class="form-group row">
+                <label for="nom" class="col-md-2 col-form-label" >Nom</label>
+                <div class="col-md-10">
+                  <input id="nom" class="form-control" value="<?= $patient["nom"]?>" type="text" name="nom" placeholder="Entrez le nom du patient">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="numtel" class="col-md-2 col-form-label" >Téléphone</label>
+                <div class="col-md-10">
+                  <input id="numtel" class="form-control" value="<?= $patient["numtel"]?>" type="tel" name="numtel" placeholder="Entrez le/les numeros du telephone du patient">
+                </div>                  
+              </div>
+              <div class="form-group row">
+                <label for="diagnostique" class="col-md-4 col-form-label" >Diagnostique</label>
+                <div class="col-md-8">
+                  <input id="diagnostique" class="form-control" value="<?= $patient["diagnostique"]?>" type="text" name="diagnostique" placeholder="Entrez le diagnostique du patient">
+                </div>                  
+              </div>
+              <div class="form-group row">
+                <label for="correspondance" class="col-md-4 col-form-label" >Correspondance</label>
+                <div class="col-md-8">
+                  <input id="correspondance" class="form-control" type="text" name="correspondance" value="<?= $patient["correspondance"]?>" placeholder="Entrez le correspondance du patient">
+                </div>                    
+              </div>
+              <div class="form-group row">
+                <label for="datenaiss" class="col-md-2 col-form-label" >date de naissance</label>
+                <div class="col-md-10">
+                  <input id="datenaiss" value="<?= $patient["datenai"]?>"  class="form-control" type="date" name="datenaiss" placeholder="Date de naissance">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="adress" class="col-md-2 col-form-label" >Address</label>
+                <div class="col-md-10">
+                  <input id="adress" class="form-control" value="<?= $patient["address"]?>"   type="text" name="adress" placeholder="Entrez l'address du patient" rows="6"></input>
+                </div>
+              </div>
 
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button name="enregistrer" type="submit" style="color:white;" class="btn btn-warning" >mise a jour le patient</button>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button name="enregistrer" type="submit" style="color:white;" class="btn btn-warning" >mise a jour le patient</button>
+            </div>
+        </form>
       </div>
-    </form>
-    
-  </div>
-      
     </div>
   </div>
 </div>
@@ -103,8 +101,16 @@
     <div class="card">
       
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">Ajouter Image</h5>
+        <form method="POST" enctype="multipart/form-data">
+          <div class="custom-file">
+            <input type="file" name="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+          <div class="btn-group" role="group" aria-label="Button group">
+          <button type="submit" value="upload" name="upim" style="color:white;" class="btn btn-info" >Ajouter</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -112,8 +118,28 @@
     <div class="card">
       
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">Ajouter Document</h5>
+        <form method="POST" enctype="multipart/form-data">
+          <div class="custom-file">
+            <input name="file" type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+            <button type="submit" value="upload" name="updoc" style="color:white;" class="btn btn-info" >Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Ajouter Video</h5>
+        <form method="POST" enctype="multipart/form-data">
+          <div class="custom-file">
+            <input type="file" name="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+            <button type="submit" value="upload" name="upvid" style="color:white;" class="btn btn-info" >Ajouter</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -121,20 +147,149 @@
     <div class="card">
       
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        <h5 class="card-title">Ajouter un archive</h5>
+        <form method="POST" enctype="multipart/form-data">
+          <div class="custom-file">
+            <input type="file" name="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+            <button type="submit" value="upload" name="upzip" style="color:white;" class="btn btn-info" >Ajouter</button>
+          </div>
+        </form>
       </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-      
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+
     </div>
   </div>
 </div>
-  </div>
 </div>
+<div style="margin-bottom:2rem;" class="card">
+  <div class="card-header">
+    Dossier Medical
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Contenu</h5>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="image-tab" data-toggle="tab" href="#image" role="tab" aria-controls="image" aria-selected="true">Images</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="document-tab" data-toggle="tab" href="#document" role="tab" aria-controls="document" aria-selected="false">Documents</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="archive-tab" data-toggle="tab" href="#archive" role="tab" aria-controls="archive" aria-selected="false">Archives</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Videos</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="image" role="tabpanel" aria-labelledby="image-tab">
+  <div class="row-cols-1 row-cols-md-3 row">
+  <?php
+$images=scandir("$updirim") ;
+for($a=2;$a<count($images);$a++){
+	$d="$updirim $images[$a]";
+	$info = pathinfo($d);
+if ($info["extension"] == "jpg"||$info["extension"] == "png") { 
+ ?>
+ 
+   <div class="card col mb-4">
+     <div class="card-body">
+       <h5 class="card-title"><?php echo $images[$a] ; ?></h5>
+       <a href="<?php echo $updirim,$images[$a] ; ?>"onclick="window.open(this.href); return false;"><img src="<?php echo $updirim,$images[$a] ; ?>" width="150" height="150" alt="" ></a>
+     </div>
+   </div>
+   
+
+ 
+  <?php
+ }  
+}
+   ?>
+</div>
+  </div>
+  <div class="tab-pane fade" id="document" role="tabpanel" aria-labelledby="document-tab">
+  <div class="row-cols-1 row-cols-md-3 row">
+  <?php
+$doc=scandir("$updirdoc") ;
+for($a=2;$a<count($doc);$a++){
+ ?>
+ 
+   <div class="card col mb-4">
+     <div class="card-body">
+       <h5 class="card-title"><?php echo $doc[$a] ; ?></h5>
+       <a href="<?php echo $updirdoc,$doc[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-text" aria-hidden="true"></i></span></a>
+     </div>
+   </div>
+   
+
+ 
+  <?php
+ }  
+
+   ?>
+</div>
+
+  </div>
+  <div class="tab-pane fade" id="archive" role="tabpanel" aria-labelledby="archive-tab">.<div class="row-cols-1 row-cols-md-3 row">
+  <?php
+$zip=scandir("$updirzip") ;
+for($a=2;$a<count($zip);$a++){
+ ?>
+ 
+   <div class="card col mb-4">
+     <div class="card-body">
+       <h5 class="card-title"><?php echo $zip[$a] ; ?></h5>
+       <a href="<?php echo $updirzip,$zip[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-archive-o" aria-hidden="true"></i></span></a>
+     </div>
+   </div>
+   
+
+ 
+  <?php
+ }  
+
+   ?>
+</div>
+
+  </div>
+  <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+  <div class="row-cols-1 row-cols-md-3 row">
+  <?php
+$vid=scandir("$updirvid") ;
+for($a=2;$a<count($vid);$a++){
+ ?>
+ 
+   <div class="card col mb-4">
+     <div class="card-body">
+       <h5 class="card-title"><?php echo $vid[$a] ; ?></h5>
+       <a href="<?php echo $updirvid,$vid[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-video-o" aria-hidden="true"></i></span></a>
+     </div>
+   </div>
+   
+
+ 
+  <?php
+ }  
+
+   ?>
+</div>
+
+
+  </div>
+  </div>
+  
+</div>
+
+</div>
+
+
+</div>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>

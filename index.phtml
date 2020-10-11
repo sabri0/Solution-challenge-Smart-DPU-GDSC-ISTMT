@@ -20,7 +20,7 @@
             <tbody>
                 <?php foreach($patients as $patient): ?>
                     <tr>
-                        <td><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-folder-open"></i></span> <?= $patient['IDpat'] ?></td>
+                        <td><a href="patient.php?id_patient=<?= $patient['IDpat'] ?>"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-folder-open"></i></span></a> </td>
                         <td><?= $patient['nom'] ?></td>
                         <td><?= $patient['prenom'] ?></td>
                         <td><?= $patient['datenai'] ?></td>
