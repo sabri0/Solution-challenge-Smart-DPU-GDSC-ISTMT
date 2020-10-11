@@ -1,0 +1,58 @@
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h2 class="display-5">Ajouter Patient</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 offset-md-1 col-md-10">
+      <form method="post" action="add.php">
+        <div class="form-group row">
+          <label for="pnom" class="col-md-2 col-form-label" >Prénom</label>
+          <div class="col-md-10">
+            <input id="pnom" class="form-control" type="text" name="pnom" placeholder="Entrez le prénom du patient">
+          </div>                 
+        </div>
+        <div class="form-group row">
+          <label for="nom" class="col-md-2 col-form-label" >Nom</label>
+          <div class="col-md-10">
+            <input id="nom" class="form-control" type="text" name="nom" placeholder="Entrez le nom du patient">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="numtel" class="col-md-2 col-form-label" >Téléphone</label>
+          <div class="col-md-10">
+            <input id="numtel" class="form-control" type="tel" name="numtel" placeholder="Entrez le/les numeros du telephone du patient">
+          </div>                  
+        </div>
+        <div class="form-group row">
+          <label for="diagnostique" class="col-md-2 col-form-label" >Diagnostique</label>
+          <div class="col-md-4">
+            <input id="diagnostique" class="form-control" type="text" name="diagnostique" placeholder="Entrez le diagnostique du patient">
+          </div>
+          <label for="correspondance" class="col-md-2 col-form-label" >Correspondance</label>
+          <div class="col-md-4">
+            <input id="correspondance" class="form-control" type="text" name="correspondance" placeholder="Entrez le correspondance du patient">
+          </div>                    
+        </div>
+        <div class="form-group row">
+          <label for="datenaiss" class="col-md-2 col-form-label" >date de naissance</label>
+          <div class="col-md-10">
+            <input id="datenaiss" class="form-control" type="date" name="datenaiss" placeholder="Date de naissance">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="adress" class="col-md-2 col-form-label" >Address</label>
+          <div class="col-md-10">
+            <textarea id="adress" class="form-control" type="email" name="adress" placeholder="Entrez l'address du patient" rows="6"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="offset-md-2 col-md-10">
+            <button name="enregistrer" type="submit" class="btn btn-primary">Enregistrer le patient</button>
+          </div>
+        </div>
+      </form>
+    </div>
+       </div>
+  </div>
+</div>
+

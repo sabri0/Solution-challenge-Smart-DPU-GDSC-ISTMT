@@ -1,0 +1,140 @@
+<!-- Modal -->
+<div class="modal fade" id="modifier" tabindex="-1" aria-labelledby="modifierLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modifierLabel">Modifier Patient</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="col-12 col-md-12">
+      <form method="post" action="edit.php">
+      <div class="modal-body">
+        <div class="form-group row">
+          <label for="pnom" class="col-md-2 col-form-label" >Prénom</label>
+          <div class="col-md-10">
+            <input id="pnom" value="<?= $patient["prenom"]?>" class="form-control" type="text" name="pnom" placeholder="Entrez le prénom du patient">
+          </div>                 
+        </div>
+        <div class="form-group row">
+          <label for="nom" class="col-md-2 col-form-label" >Nom</label>
+          <div class="col-md-10">
+            <input id="nom" class="form-control" value="<?= $patient["nom"]?>" type="text" name="nom" placeholder="Entrez le nom du patient">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="numtel" class="col-md-2 col-form-label" >Téléphone</label>
+          <div class="col-md-10">
+            <input id="numtel" class="form-control" value="<?= $patient["numtel"]?>" type="tel" name="numtel" placeholder="Entrez le/les numeros du telephone du patient">
+          </div>                  
+        </div>
+        <div class="form-group row">
+          <label for="diagnostique" class="col-md-4 col-form-label" >Diagnostique</label>
+          <div class="col-md-8">
+            <input id="diagnostique" class="form-control" value="<?= $patient["diagnostique"]?>" type="text" name="diagnostique" placeholder="Entrez le diagnostique du patient">
+          </div>                  
+        </div>
+        <div class="form-group row">
+          <label for="correspondance" class="col-md-4 col-form-label" >Correspondance</label>
+          <div class="col-md-8">
+            <input id="correspondance" class="form-control" type="text" name="correspondance" value="<?= $patient["correspondance"]?>" placeholder="Entrez le correspondance du patient">
+          </div>                    
+        </div>
+        <div class="form-group row">
+          <label for="datenaiss" class="col-md-2 col-form-label" >date de naissance</label>
+          <div class="col-md-10">
+            <input id="datenaiss" value="<?= $patient["datenai"]?>"  class="form-control" type="date" name="datenaiss" placeholder="Date de naissance">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="adress" class="col-md-2 col-form-label" >Address</label>
+          <div class="col-md-10">
+            <input id="adress" class="form-control" value="<?= $patient["address"]?>"   type="text" name="adress" placeholder="Entrez l'address du patient" rows="6"></input>
+          </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button name="enregistrer" type="submit" style="color:white;" class="btn btn-warning" >mise a jour le patient</button>
+      </div>
+    </form>
+    
+  </div>
+      
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row" style="margin-bottom:2rem">
+  <div class="card-group col-md-12">
+    <div class="card">
+      <div style="color:white"class="text-center display-5 card-header bg-primary">
+            Patient
+          </div>
+        <div class="card-body row">
+          <div class="col-md-4">
+            <label for="nom">Dossier du patient du</label>
+             <?= strtoupper($patient["nom"]) ?>
+            <?=ucwords($patient["prenom"]) ?>
+          </div>
+          <div class="col-md-4">
+            <label for="naiss">Date de naissence</label>
+             <?=$patient["datenai"]?>
+          </div>
+          <div class="col-md-4">
+            <label for="naiss">Correspondance</label>
+             <?=$patient["correspondance"]?>
+          </div>
+          <div style="margin-top:2rem;" class="offset-md-4 col-md-4">
+          <button type="button" style="color:white;" class="btn btn-warning" data-toggle="modal" data-target="#modifier">
+            Modifier
+          </button>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  <div class="row row-cols-1 row-cols-md-2">
+  <div class="col mb-4">
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

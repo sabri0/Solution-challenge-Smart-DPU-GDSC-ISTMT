@@ -2,7 +2,6 @@
 session_start();
 include 'app/connect.php';
 if (isset($_POST['enregistrer'])) {
-    $cin = uniqid();
    $nom = htmlspecialchars($_POST['nom']);
    $prenom = htmlspecialchars($_POST['pnom']);
    $address =htmlspecialchars($_POST['adress']);
@@ -14,10 +13,9 @@ if (isset($_POST['enregistrer'])) {
 
  if (!empty($_POST['nom']) AND !empty($_POST['pnom'])AND !empty(['adress']) AND !empty($_POST['numtel']) AND !empty($_POST['datenaiss'])AND !empty($_POST['correspondance']) AND !empty($_POST['diagnostique'])) {
     
-	   $insertpat = $pdo->prepare('INSERT INTO patient (IDpat, IDmed, prenom, nom, datenai, address, numtel, diagnostique,correspondance) VALUES (:ID,:IDmed ,:prenom, :nom, :datenai,:address,:numtel,:diagnostique,:correspondance)');
+	   $insertpat = $pdo->prepare('UPDATE patient SET  prenom= :prenom, nom=:nom, datenai=:datenai, address=:address, numtel=:numtel, diagnostique=:diagnostique,correspondance=:correspondance WHERE IDpat=:ID');
        $insertpat->execute(array(
-	  "ID" => $cin, 
-	  "IDmed" => $_SESSION['id'], 
+	  "ID" => $_SESSION['IDpat'], 
 	  "prenom" => $prenom, 
 	  "nom"=> $nom, 
 	  "datenai" => $datenaiss,
@@ -25,12 +23,6 @@ if (isset($_POST['enregistrer'])) {
 	  "numtel" => $numtel, 
     "diagnostique" => $diagnostique,
     "correspondance" => $correspondance));
-	  $_SESSION['IDpat']=$cin;
-	  $m=$_SESSION['id'];
-	  mkdir("data/patients/image/".$cin, 0777, true);
-	  mkdir("data/patients/document/".$cin, 0777, true);
-	  mkdir("data/patients/zip/".$cin, 0777, true);
-	  mkdir("data/patients/video/".$cin, 0777, true);
 	 
 
 
@@ -38,9 +30,3 @@ header("location: patient.php?id_patient=".$_SESSION['IDpat']);
  
  }
 }
-
-
-
-$title = 'Ajouter Patient';
-$template = 'add';
-include 'layout.phtml';
