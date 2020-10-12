@@ -64,6 +64,33 @@
     </div>
   </div>
 </div>
+<!-- Note Modal -->
+<div class="modal fade" id="noteModal" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="noteModalLabel">Ajouter une note</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="add-note.php" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="my-input">Note</label>
+            <textarea id="my-input" class="form-control" type="text" name="note">
+            </textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Quitter</button>
+          <button type="submit" name="setNote" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row" style="margin-bottom:2rem">
   <div class="card-group col-md-12">
@@ -180,110 +207,142 @@
   <li class="nav-item" role="presentation">
     <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Videos</a>
   </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="note-tab" data-toggle="tab" href="#note" role="tab" aria-controls="note" aria-selected="false">Notes</a>
+  </li>
 </ul>
 
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="image" role="tabpanel" aria-labelledby="image-tab">
-  <div class="row-cols-1 row-cols-md-3 row">
-  <?php
-$images=scandir("$updirim") ;
-for($a=2;$a<count($images);$a++){
-	$d="$updirim $images[$a]";
-	$info = pathinfo($d);
-if ($info["extension"] == "jpg"||$info["extension"] == "png") { 
- ?>
- 
-   <div class="card col mb-4">
-     <div class="card-body">
-       <h5 class="card-title"><?php echo $images[$a] ; ?></h5>
-       <a href="<?php echo $updirim,$images[$a] ; ?>"onclick="window.open(this.href); return false;"><img src="<?php echo $updirim,$images[$a] ; ?>" width="150" height="150" alt="" ></a>
-     </div>
-   </div>
-   
-
- 
-  <?php
- }  
-}
-   ?>
-</div>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="image" role="tabpanel" aria-labelledby="image-tab">
+          <div class="row-cols-1 row-cols-md-3 row">
+            <?php
+              $images=scandir("$updirim") ;
+              for($a=2;$a<count($images);$a++){
+                $d="$updirim $images[$a]";
+                $info = pathinfo($d);
+              if ($info["extension"] == "jpg"||$info["extension"] == "png") { 
+              ?>
+                <div class="card col mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo $images[$a] ; ?></h5>
+                    <a href="<?php echo $updirim,$images[$a] ; ?>"onclick="window.open(this.href); return false;"><img src="<?php echo $updirim,$images[$a] ; ?>" width="150" height="150" alt="" ></a>
+                  </div>
+                </div>
+            <?php
+              }  
+              }
+            ?>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="document" role="tabpanel" aria-labelledby="document-tab">
+        <div class="row-cols-1 row-cols-md-3 row">
+        <?php
+          $doc=scandir("$updirdoc") ;
+          for($a=2;$a<count($doc);$a++){
+          ?>
+          
+            <div class="card col mb-4">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $doc[$a] ; ?></h5>
+                <a href="<?php echo $updirdoc,$doc[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-text" aria-hidden="true"></i></span></a>
+              </div>
+            </div>
+          <?php
+          }  
+            ?>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="archive" role="tabpanel" aria-labelledby="archive-tab">
+        <div class="row-cols-1 row-cols-md-3 row">
+          <?php
+        $zip=scandir("$updirzip") ;
+        for($a=2;$a<count($zip);$a++){
+        ?>
+        
+          <div class="card col mb-4">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $zip[$a] ; ?></h5>
+              <a href="<?php echo $updirzip,$zip[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-archive-o" aria-hidden="true"></i></span></a>
+            </div>
+          </div>
+          <?php
+            }  
+          ?>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+        <div class="row-cols-1 row-cols-md-3 row">
+        <?php
+          $vid=scandir("$updirvid") ;
+          for($a=2;$a<count($vid);$a++){
+          ?>
+          
+            <div class="card col mb-4">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $vid[$a] ; ?></h5>
+                <a href="<?php echo $updirvid,$vid[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-video-o" aria-hidden="true"></i></span></a>
+              </div>
+            </div>
+        <?php
+            }  
+            ?>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="note" role="tabpanel" aria-labelledby="note-tab">...
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#noteModal">
+          Ajouter une Note
+        </button>
+        <div class="row-cols-1 row-cols-md-3 row">
+        <?php
+          foreach ($notes as $note){
+          ?>
+          
+            <div class="card col mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Note du <?php echo $note["Date"] ; ?></h5>
+                <p><?= $note["Note"]?></p>
+                <button
+                type="button"
+                class="btn btn-warning"
+                title="Supprimer le post"
+                data-toggle="modal"
+                data-target="#modal-delete-<?= intval( $note['id_note'] ); ?>">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+              <div id="modal-delete-<?= intval( $note['id_note'] ); ?>" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Supprimer la note</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Êtes-vous sûr de vouloir supprimer cet note ?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a
+                        class="btn btn-danger btn-lg"
+                        title="Supprimer le post"
+                        href="delete-note.php?id=<?= intval( $note['id_note'] ); ?>">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+        <?php
+            }  
+            ?>
+        </div>
+      </div>
+          
+      </div>
+    </div>
   </div>
-  <div class="tab-pane fade" id="document" role="tabpanel" aria-labelledby="document-tab">
-  <div class="row-cols-1 row-cols-md-3 row">
-  <?php
-$doc=scandir("$updirdoc") ;
-for($a=2;$a<count($doc);$a++){
- ?>
- 
-   <div class="card col mb-4">
-     <div class="card-body">
-       <h5 class="card-title"><?php echo $doc[$a] ; ?></h5>
-       <a href="<?php echo $updirdoc,$doc[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-text" aria-hidden="true"></i></span></a>
-     </div>
-   </div>
-   
-
- 
-  <?php
- }  
-
-   ?>
-</div>
-
-  </div>
-  <div class="tab-pane fade" id="archive" role="tabpanel" aria-labelledby="archive-tab">.<div class="row-cols-1 row-cols-md-3 row">
-  <?php
-$zip=scandir("$updirzip") ;
-for($a=2;$a<count($zip);$a++){
- ?>
- 
-   <div class="card col mb-4">
-     <div class="card-body">
-       <h5 class="card-title"><?php echo $zip[$a] ; ?></h5>
-       <a href="<?php echo $updirzip,$zip[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-archive-o" aria-hidden="true"></i></span></a>
-     </div>
-   </div>
-   
-
- 
-  <?php
- }  
-
-   ?>
-</div>
-
-  </div>
-  <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-  <div class="row-cols-1 row-cols-md-3 row">
-  <?php
-$vid=scandir("$updirvid") ;
-for($a=2;$a<count($vid);$a++){
- ?>
- 
-   <div class="card col mb-4">
-     <div class="card-body">
-       <h5 class="card-title"><?php echo $vid[$a] ; ?></h5>
-       <a href="<?php echo $updirvid,$vid[$a] ; ?>"onclick="window.open(this.href); return false;"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-file-video-o" aria-hidden="true"></i></span></a>
-     </div>
-   </div>
-   
-
- 
-  <?php
- }  
-
-   ?>
-</div>
-
-
-  </div>
-  </div>
-  
-</div>
-
-</div>
-
-
 </div>
 
 <script>

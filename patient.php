@@ -1,7 +1,7 @@
 <?php
 include 'app/connect.php';
 session_start();
-
+$_SESSION['IDpat']=$_GET['id_patient'];
       $reponse = $pdo->prepare("SELECT * FROM patient WHERE IDpat=?") ; 
       $reponse->execute(array($_GET['id_patient']));
   $patient = $reponse->fetch();
