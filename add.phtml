@@ -1,24 +1,31 @@
 <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h2 class="display-5">Ajouter Patient</h2>
 </div>
+<?php 
+if (!empty($erreur)) {
+  echo '<div class="alert alert-danger" role="alert">'.
+  $erreur
+.'</div>';
+}
+?>
 <div class="container">
   <div class="row">
     <div class="col-12 offset-md-1 col-md-10">
       <form method="post" action="add.php">
         <div class="form-group row">
-          <label for="pnom" class="col-md-2 col-form-label" >Prénom</label>
+          <label for="pnom" class="col-md-2 col-form-label" >Prénom*</label>
           <div class="col-md-10">
             <input id="pnom" class="form-control" type="text" name="pnom" placeholder="Entrez le prénom du patient">
           </div>                 
         </div>
         <div class="form-group row">
-          <label for="nom" class="col-md-2 col-form-label" >Nom</label>
+          <label for="nom" class="col-md-2 col-form-label" >Nom*</label>
           <div class="col-md-10">
             <input id="nom" class="form-control" type="text" name="nom" placeholder="Entrez le nom du patient">
           </div>
         </div>
         <div class="form-group row">
-          <label for="numtel" class="col-md-2 col-form-label" >Téléphone</label>
+          <label for="numtel" class="col-md-2 col-form-label" >Téléphone*</label>
           <div class="col-md-10">
             <input id="numtel" class="form-control" type="tel" name="numtel" placeholder="Entrez le/les numeros du telephone du patient">
           </div>                  
@@ -34,7 +41,7 @@
           </div>                    
         </div>
         <div class="form-group row">
-          <label for="datenaiss" class="col-md-2 col-form-label" >date de naissance</label>
+          <label for="datenaiss" class="col-md-2 col-form-label" >date de naissance*</label>
           <div class="col-md-10">
             <input id="datenaiss" class="form-control" type="date" name="datenaiss" placeholder="Date de naissance">
           </div>
@@ -50,6 +57,7 @@
             <button name="enregistrer" type="submit" class="btn btn-primary">Enregistrer le patient</button>
           </div>
         </div>
+        <p style="color:red" class="text-left">*Champs Requis</p>
       </form>
     </div>
        </div>

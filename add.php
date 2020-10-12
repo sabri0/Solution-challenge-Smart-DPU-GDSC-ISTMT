@@ -5,14 +5,28 @@ if (isset($_POST['enregistrer'])) {
     $cin = uniqid();
    $nom = htmlspecialchars($_POST['nom']);
    $prenom = htmlspecialchars($_POST['pnom']);
-   $address =htmlspecialchars($_POST['adress']);
+   
    $numtel =htmlspecialchars($_POST['numtel']);
    $datenaiss = htmlspecialchars($_POST['datenaiss']) ;
-   $diagnostique = htmlspecialchars($_POST['diagnostique']);
+ 
+  
+if (!empty($_POST['correspondance'])) {
   $correspondance = htmlspecialchars($_POST['correspondance']);
+}else{
+  $correspondance="Pas de correspondance";
+}
+if (!empty($_POST['diagnostique'])) {
+  $diagnostique = htmlspecialchars($_POST['diagnostique']);
+}else{
+  $diagnostique="Pas de diagnostique";
+}
+if (!empty($_POST['adress'])) {
+  $address =htmlspecialchars($_POST['adress']);
+}else{
+  $adress="Pas d'address";
+}
 
-
- if (!empty($_POST['nom']) AND !empty($_POST['pnom'])AND !empty(['adress']) AND !empty($_POST['numtel']) AND !empty($_POST['datenaiss'])AND !empty($_POST['correspondance']) AND !empty($_POST['diagnostique'])) {
+ if (!empty($_POST['nom']) AND !empty($_POST['pnom'])AND !empty($adress) AND !empty($_POST['numtel']) AND !empty($_POST['datenaiss'])AND !empty($correspondance) AND !empty($diagnostique)) {
     
 	   $insertpat = $pdo->prepare('INSERT INTO patient (IDpat, IDmed, prenom, nom, datenai, address, numtel, diagnostique,correspondance) VALUES (:ID,:IDmed ,:prenom, :nom, :datenai,:address,:numtel,:diagnostique,:correspondance)');
        $insertpat->execute(array(
@@ -36,7 +50,9 @@ if (isset($_POST['enregistrer'])) {
 
 header("location: patient.php?id_patient=".$_SESSION['IDpat']);
  
- }
+ }else{
+  $erreur = "Vérifier les entrer requis";
+}
 }
 
 
