@@ -1,8 +1,21 @@
 <?php
 session_start();
 include 'app/connect.php';
+$query = $pdo -> prepare(
+  '
+  SELECT IDpat FROM patient
+  ');
+  
+  $query->execute();
+  $id = $query->fetchAll(); 
+  $query->closeCursor();
 if (isset($_POST['enregistrer'])) {
+  do{
     $cin = uniqid();
+  }while(in_array($cin, $id));
+    
+  
+  
    $nom = htmlspecialchars($_POST['nom']);
    $prenom = htmlspecialchars($_POST['pnom']);
    
@@ -26,7 +39,7 @@ if (!empty($_POST['adress'])) {
   $adress="Pas d'address";
 }
 
- if (!empty($_POST['nom']) AND !empty($_POST['pnom'])AND !empty($adress) AND !empty($_POST['numtel']) AND !empty($_POST['datenaiss'])AND !empty($correspondance) AND !empty($diagnostique)) {
+ if (!empty($_POST['nom']) AND !empty($_POST['pnom']) AND !empty($_POST['numtel']) AND !empty($_POST['datenaiss'])) {
     
 	   $insertpat = $pdo->prepare('INSERT INTO patient (IDpat, IDmed, prenom, nom, datenai, address, numtel, diagnostique,correspondance) VALUES (:ID,:IDmed ,:prenom, :nom, :datenai,:address,:numtel,:diagnostique,:correspondance)');
        $insertpat->execute(array(

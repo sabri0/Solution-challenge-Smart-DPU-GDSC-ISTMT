@@ -208,7 +208,7 @@
     <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Videos</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" id="note-tab" data-toggle="tab" href="#note" role="tab" aria-controls="note" aria-selected="false">Notes</a>
+    <a class="nav-link" id="note-tab" data-toggle="tab" href="#note" role="tab" aria-controls="note" aria-selected="false">Consultations</a>
   </li>
 </ul>
 
@@ -288,9 +288,9 @@
             ?>
         </div>
       </div>
-      <div class="tab-pane fade" id="note" role="tabpanel" aria-labelledby="note-tab">...
+      <div class="tab-pane fade" id="note" role="tabpanel" aria-labelledby="note-tab">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#noteModal">
-          Ajouter une Note
+          Ajouter une Consultation
         </button>
         <div class="row-cols-1 row-cols-md-3 row">
         <?php
@@ -299,7 +299,7 @@
           
             <div class="card col mb-4">
               <div class="card-body">
-                <h5 class="card-title">Note du <?php echo $note["Date"] ; ?></h5>
+                <h5 class="card-title">Consultation du <?php echo $note["Date"] ; ?></h5>
                 <p><?= $note["Note"]?></p>
                 <button
                 type="button"
@@ -313,13 +313,13 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Supprimer la note</h5>
+                      <h5 class="modal-title">Supprimer la Consultation</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      <p>Êtes-vous sûr de vouloir supprimer cet note ?</p>
+                      <p>Êtes-vous sûr de vouloir supprimer cet consultation ?</p>
                     </div>
                     <div class="modal-footer">
                       <a
