@@ -2,16 +2,25 @@
 session_start();
 include 'app/connect.php';
 
-if (isset($_POST['setNote'])) {
-    
-    $Note = htmlspecialchars($_POST['note']);
-   
-	   $insertNote = $pdo->prepare("INSERT INTO `note` ( `ID_patient`, `Note`, `Date`) VALUES ( :id, :note, NOW())");
+$query = $pdo -> prepare(
+  '
+  SELECT id_note FROM note
+  ');
+  
+  $query->execute();
+  $id = $query->fetchAll(); 
+  $query->closeCursor();
+  do{
+    $noteId = uniqid();
+  }while(in_array($noteId, $id));
+	   $insertNote = $pdo->prepare("INSERT INTO `note` ( `id_note`,`ID_patient`, `Date`) VALUES ( :noteId,:id, NOW())");
+     $pdo->beginTransaction();
        $insertNote->execute(array(
+        "noteId" =>  $noteId,      
 	  "id" => $_SESSION['IDpat'], 
-	  "note" => $Note));
-	
+	  ));
+    $pdo->commit();
 
 
-header("location: patient.php?id_patient=".$_SESSION['IDpat']);
-}
+header("location: consultation.php?noteId=".$noteId.'&&id_patient='.$_SESSION['IDpat']);
+

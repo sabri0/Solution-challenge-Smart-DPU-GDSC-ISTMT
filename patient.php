@@ -2,6 +2,9 @@
 include 'app/connect.php';
 session_start();
 $_SESSION['IDpat']=$_GET['id_patient'];
+$lastConsultation=$pdo->prepare("
+UPDATE `patient` SET `datemes` = NOW() WHERE `patient`.`IDpat` = ?");
+$lastConsultation->execute(array($_GET['id_patient']));
       $reponse = $pdo->prepare("SELECT * FROM patient WHERE IDpat=?") ; 
       $reponse->execute(array($_GET['id_patient']));
   $patient = $reponse->fetch();
@@ -12,7 +15,7 @@ $_SESSION['IDpat']=$_GET['id_patient'];
   $updirzip= "data/patients/zip/$id/";
   $updirvid= "data/patients/video/$id/";
   
-  $reponseNote = $pdo->prepare("SELECT * FROM note WHERE ID_patient=?") ; 
+  $reponseNote = $pdo->prepare("SELECT `ID_patient`,`id_note`,Note,SUBSTRING(Note, 1,150) AS Excerpt,`Date` FROM `note` WHERE ID_patient=?") ; 
      $reponseNote->execute(array($_GET['id_patient']));
   $notes = $reponseNote->fetchAll();
   

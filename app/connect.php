@@ -1,9 +1,9 @@
 <?php
 
 $pdo = new PDO(
-  'mysql:host=localhost;dbname=neuro;charset=UTF8',
+  'mysql:host=localhost;dbname=radiologie;charset=UTF8',
   'root',
-  'Admin123',
+  '',
   array(
     PDO::ATTR_ERRMODE             => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE  => PDO::FETCH_ASSOC,

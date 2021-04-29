@@ -14,6 +14,7 @@
     "fontawesome": "^5.6.3",
     "gridjs": "^2.1.0",
     "gridjs-jquery": "^1.16.0",
+    "infinite-scroll": "^4.0.1",
     "jquery": "^3.5.1"
   }
 }

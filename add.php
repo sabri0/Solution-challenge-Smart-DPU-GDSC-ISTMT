@@ -57,7 +57,10 @@ if (!empty($_POST['adress'])) {
 	  mkdir("data/patients/image/".$cin, 0777, true);
 	  mkdir("data/patients/document/".$cin, 0777, true);
 	  mkdir("data/patients/zip/".$cin, 0777, true);
-	  mkdir("data/patients/video/".$cin, 0777, true);
+	 
+    if (!mkdir("data/patients/video/".$cin, 0777, true)) {
+      die('Failed to create folders...');
+      }
 	 
 
 
