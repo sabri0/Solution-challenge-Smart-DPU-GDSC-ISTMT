@@ -1,15 +1,15 @@
-  <body> 
+  <body id="intro"> 
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h2 class="display-5">Liste des Patients</h2>
+      <h2 class="display-5" style="color:white;">Liste des Patients</h2>
 
     </div>
     
-    <div class="offset-md-1 col-md-10">
-    <table class="patient">
+    <div class="offset-md-1 col-md-10 table-responsive">
+    <table class="table-light table-striped table-hover" id="patient">
             <thead>
                 <tr>
                     <th>Vers Dossier</th>
-                    <th>Nom Prenom</th>
+                    <th>Nom</th>
                     <th>Date De Naissance</th>
                     <th>Dernière Consutation</th>
                     <th>Diagnostique</th>
@@ -21,7 +21,7 @@
                 <?php foreach($patients as $patient): ?>
                     <tr class='item' >
                         <td><a href="patient.php?id_patient=<?= $patient['IDpat'] ?>"><span class="text-center" style="font-size: 2rem; color: Dodgerblue;"><i class="fa fa-folder-open"></i></span></a> <?= $patient['numtel'] ?></td>
-                        <td><?= $patient['prenom'] ?> <?= $patient['nom'] ?></td>
+                        <td> <?= $patient['nom'] ?> <?= $patient['prenom'] ?> </td>
                         <td><?= $patient['datenai'] ?></td>
                         <td><?= $patient['datemes'] ?></td>
                         <td> <?= $patient['diagnostique'] ?></td>
@@ -31,17 +31,18 @@
                 <?php endforeach ?>
                
             </tbody>
+            <tfoot>
+            <tr>
+                    <th>Vers Dossier</th>
+                    <th>Nom</th>
+                    <th>Date De Naissance</th>
+                    <th>Dernière Consutation</th>
+                    <th>Diagnostique</th>
+                    <th>Correspondance</th>
+            </tr>
+        </tfoot>
         </table>
-         <div class="page-load-status">
-  <div class="loader-ellips infinite-scroll-request">
-    <span class="loader-ellips__dot"></span>
-    <span class="loader-ellips__dot"></span>
-    <span class="loader-ellips__dot"></span>
-    <span class="loader-ellips__dot"></span>
-  </div>
-  <p class="infinite-scroll-last">End of content</p>
-  <p class="infinite-scroll-error">No more pages to load</p>
-</div>
+    
     </div>
 
   

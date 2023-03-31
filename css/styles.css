@@ -5,3 +5,13 @@
   text-align: center;
   color: #777;
 }
+#intro {
+  background-color: bisque;
+  
+  height: 100vh;
+}
+tfoot input {
+  width: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+}

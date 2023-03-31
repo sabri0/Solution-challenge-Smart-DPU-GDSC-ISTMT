@@ -1,9 +1,6 @@
 <?php
 session_start();
-if( !array_key_exists('id', $_GET) OR !ctype_digit($_GET['id']) ) {
-  header("location: patient.php?id_patient=".$_SESSION['IDpat']);
-  exit();
-}
+
 
 // Inclusion des dépendances
 include 'app/connect.php';
@@ -17,7 +14,7 @@ $query = $pdo->prepare(
 );
 
 // Exécution de la requête de suppression
-$query->execute( array($_GET['id']) );
+$query->execute( [$_GET['id']] );
 
 // Redirection vers le dashboard de l'admin
 header("location: patient.php?id_patient=".$_SESSION['IDpat']);
