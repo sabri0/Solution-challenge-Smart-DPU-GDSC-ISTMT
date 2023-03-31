@@ -6,4 +6,4 @@
 # Configure ./app/connect.php file with your configurations
 # install node js
 # in the root directory of the app open terminal and type npm install
-# to run the app go via http://localhost/yout_directory_name_in_the_server_root
+# to run the app go via http://localhost/your_directory_name_in_the_server_root
